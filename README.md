@@ -16,6 +16,7 @@
 9. [Tuple](#tuple)
 10. [Set](#set)
 11. [Dictionary](#dictionary)
+12. [Map, Filter & List Comprehension](#map,-filter--list-comprehension)
 12. [File in Python](#file-in-python)
 13. [Iterators & Generators](#iterators--generators)
 14. [Error Handling](#error-handling)
@@ -519,6 +520,23 @@ for key in person:
 # Print the Values of Dictionary
 for key in person:
     print (person[key]) # Output: John Doe usa 30
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+# Map, Filter & List Comprehension
+```python
+products = [('product1', 75), ('product2', 124), ('product3', 44)]
+
+# Map VS List Comprehension (Pythonic)
+product_prices = list(map(lambda pd: pd[1], products)) # [75, 124, 44]
+pd_prices = [price for _, price in products] # [75, 124, 44]
+
+# Filter VS List Comprehension
+costly_products = list(filter(lambda pd: pd[1] > 50, products))
+# [('product1', 75), ('product2', 124)]
+costly_products = [pd for pd in products if pd[1] > 50]
+# [('product1', 75), ('product2', 124)]
 ```
 
 **[⬆ back to top](#table-of-contents)**
