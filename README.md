@@ -11,16 +11,17 @@
     - [Recursion](#recursion)
 6. [For & While Loop](#for--while-loop)
     - [Loop Exception](#loop-exception)
-7. [List](#list)
-8. [Tuple](#tuple)
-9. [Set](#set)
-10. [Dictionary](#dictionary)
-11. [File in Python](#file-in-python)
-12. [Iterators & Generators](#iterators--generators)
-13. [Error Handling](#error-handling)
-14. [OOP](#oop)
-15. [Built-in Functions](#built-in-functions)
-16. [Check Program Performance](#check-program-performance)
+7. [String](#string)
+8. [List](#list)
+9. [Tuple](#tuple)
+10. [Set](#set)
+11. [Dictionary](#dictionary)
+12. [File in Python](#file-in-python)
+13. [Iterators & Generators](#iterators--generators)
+14. [Error Handling](#error-handling)
+15. [OOP](#oop)
+16. [Built-in Functions](#built-in-functions)
+17. [Check Program Performance](#check-program-performance)
 
 ## Print Output
 ```python
@@ -35,6 +36,9 @@ print(name, age)  # Output: John Doe 30
 # Print Horizontally - Default end="\n"
 for item in range(5):
     print(item, end=' ')  # Output: 0 1 2 3 4
+
+# Escape Sequences
+print("Hello \'World\'") # Output: Hello 'World'
 ```
 
 ## Variable
@@ -232,6 +236,35 @@ def check_prime(num):
 ```
 
 **[⬆ back to top](#table-of-contents)**
+
+# String
+> txt = "Hello World"
+```python
+print(txt[0], txt[-1]) # H d
+print(txt[::-1]) # dlroW olleH
+print(txt[4:1:-1]) # oll
+
+print(txt.index('o')) # 4 (counting from Left)
+print(txt.find('o')) # 4 (counting from Left)
+print(txt.rindex('o')) # 7 (counting from Right)
+print(txt.rfind('o')) # 7 (counting from Right)
+
+print(txt.split(' ')) # ['Hello', 'world']
+print(", ".join(txt.split(' '))) # Hello, world (join iterable elements into a string based on certain separator)
+
+print(txt.replace('world', 'Python')) # Hello Python
+
+print(txt.startswith('Hel')) # True
+print(txt.endswith('H')) # False
+
+print(txt.isdigit()) # False
+print(txt.isnumeric()) # False
+
+print(txt.upper()) # HELLO WORLD
+print(txt.lower()) # hello world
+print(txt.title()) # Hello World
+print(txt.isupper(), txt.islower(), txt.istitle()) # False False False
+```
 
 # List
 >li = [1, 2, 3, 4, 5] (Mutable)
