@@ -753,9 +753,72 @@ ps = Person('John Doe', 25, 'Male')
 print(ps) # Output: <__main__.Person object at 0x7ff86530b040>
 print(ps.__dict__) # Output: {'name': 'John Doe', 'age': 25, 'gender': 'Male'}
 print(ps.name) # John Doe
-print(ps.lang) # English
 print(ps.get_summary()) # Output: Name: John Doe, Age: 25, Gender: Male
 ```
+#### Class vs Instance Property
+```python
+class Person:
+    person_id = 1000
+    
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        Person.person_id += 1
+
+    def get_data(self):
+        return f"ID: {self.person_id}, Name: {self.name}, Email: {self.email}"
+
+    @classmethod
+    def generate_dummy(cls):
+        return cls("Dummy", "dummy@dummy.com")
+
+
+person1 = Person("Joe", "joe@joe.com")
+print(person1.get_data()) # ID: 1001, Name: Joe, Email: joe@joe.com
+
+person2 = Person("John", "john@john.com")
+print(person2.get_data()) # ID: 1002, Name: Joe, Email: joe@joe.com
+
+dummy = Person.generate_dummy()
+print(dummy.get_data()) # ID: 1003, Name: Dummy, Email: dummy@dummy.com
+```
+#### Object Comparision using Magic Methods
+```python
+class Square:
+    def __init__(self, length):
+        self.length = length 
+        self._area = self.length * self.length
+    
+    @property
+    def area(self):
+        return self._area 
+
+    @area.setter
+    def area(self, val):
+        self._area = val 
+
+    def __eq__(self, other):
+        return self.length == other.length
+
+    def __gt__(self, other):
+        return self.length > other.length
+
+    def __add__(self, other):
+        return f"Square({self.length + other.length})"
+
+
+sq1 = Square(5)
+sq2 = Square(3)
+print(sq1.area) # 25
+sq1.area = 100 # 100
+print(sq1.area)
+
+print(sq1 == sq2) # False
+print(sq1 > sq2) # True
+print(sq1 < sq2) # False
+print(sq1 + sq2) # Square(8)
+```
+**[⬆ back to top](#table-of-contents)**
 
 #### Encapsulation
 Protect the code from unwanted access. variable should be private and based on need getter and setter method should be created
@@ -796,36 +859,84 @@ print(author['john']) # 2
 for author in author:
     print(author) # john joe mike
 ```
+**[⬆ back to top](#table-of-contents)**
 
 #### Inheritance
+Transfer common data from parent class to child class. Python supports multiple inheritance.
 ```python
-class Rectangle:
-    def __init__(self, height, width):
-        self.height = height
-        self.width = width
-    
-    def get_area(self):
-        return self.height * self.width
+class Person:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
 
-class Square(Rectangle):
+class Employee(Person):
+    def dream(self):
+        pass 
+
+class Teacher(Person):
+    def teach(self):
+        pass
+
+class EmployeeTeacher(Employee, Teacher):
     pass
 
-rc = Rectangle(5, 4)
-print(rc.get_area()) # Output: 20
 
-sq = Square(4, 4)
-print(sq.get_area()) # Output: 16
-
-
-#  Use of isinstance() & issubclass()
-print(isinstance(rc, Rectangle)) # True
-print(isinstance(sq, Rectangle)) # True
-print(isinstance(sq, Square)) # True
-print(isinstance(rc, Square)) # False
-
-print(issubclass(Square, Rectangle)) # True
-print(issubclass(Rectangle, Square)) # False
+emp = Employee("Joe", "joe@joe.com")
+print(isinstance(emp, Person)) # True
+print(isinstance(emp, Employee)) # True
+print(issubclass(Person, object)) # True
+print(issubclass(Employee, Person)) # True
 ```
+```python
+# Extending Built-in Types by Inheritance
+class ListLogger(list):
+    def append(self, obj):
+        print("append called.")
+        super().append(obj)
+
+list = ListLogger()
+list.append(100) # append called.
+print(list) # [100]
+```
+**[⬆ back to top](#table-of-contents)**
+#### Abstraction
+Hide the implementation part, showing only the outcome. It's like HALF BAKED COOKIES, not ready to eat. can't create object for Abstract class.
+```python
+from abc import ABC, abstractmethod
+
+
+class InvalidOperationError(Exception):
+    pass
+
+class Stream(ABC):
+    def __init__(self):
+        self.opened = False
+
+    def open(self):
+        if self.opened:
+            raise InvalidOperationError("Stream already open")
+        self.opened = True
+
+    def close(self):
+        if not self.opened:
+            raise InvalidOperationError("Stream already close")
+        self.opened = False
+
+    @abstractmethod
+    def read(self):
+        pass 
+
+
+class FileStream(Stream):
+    def read(self):
+        print("Reading Data from File")
+
+class NetworkStream(Stream):
+    def read(self):
+        print("Reading Data from Network")
+```
+**[⬆ back to top](#table-of-contents)**
+
 #### Method Overriding
 ```python
 class Rectangle:
@@ -849,7 +960,6 @@ print(rc.get_area()) # Output: 20
 sq = Square(5)
 print(sq.get_area()) # Output: 25
 ```
-
 **[⬆ back to top](#table-of-contents)**
 
 # Built-in Functions
