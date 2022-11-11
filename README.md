@@ -21,7 +21,7 @@
 14. [File in Python](#file-in-python)
 15. [Iterators & Generators](#iterators--generators)
 16. [Error Handling](#error-handling)
-17. [OOP](#oop)
+17. [OOPs](#oops)
 18. [Built-in Functions](#built-in-functions)
 19. [Check Program Performance](#check-program-performance)
 
@@ -637,7 +637,7 @@ get_div(3, '4')
 
 **[⬆ back to top](#table-of-contents)**
 
-# OOP
+# OOPs
 #### Class Object, Instance Object -> Person, ps
 >Example
 ```python
@@ -662,63 +662,44 @@ print(ps.lang) # English
 print(ps.get_summary()) # Output: Name: John Doe, Age: 25, Gender: Male
 ```
 
-#### Let's create a Setter & Getter of 'age' property in Person Class
-```python
-class Person:
-    def __init__(self, name, age, gender):
-        self.name = name
-        self.age = age
-        self.gender = gender
-
-    # Getter
-    def get_age(self):
-        return self.age
-    
-    # Setter
-    def set_age (self, age):
-        self.age = int(age)
-
-    def get_summary(self):
-        return f"Name: {self.name}, Age: {self.age}, Gender: {self.gender}"
-
-ps = Person('Justin Austin', 32, 'Male')   
-print(ps.get_age()) # Output: 32
-print(ps.set_age('50'))
-print(ps.get_age()) # Output: 50
-print(type(ps.get_age())) # Output: <class 'int'>
-```
-
 #### Encapsulation
-Python doesn't have public, private & protected access keyword to encapsulate class attributes. That's why we can't explicitly declare the private class attribute. But if we want to declare that, we can add the __ (double underscore) before class attributes - it's a convention.
+Protect the code from unwanted access. variable should be private and based on need getter and setter method should be created
 ```python
-class Person:
-    def __init__(self, name, age, gender):
-        self.name = name
-        self.__age = age # private class property
-        self.gender = gender
+class Author:
+    def __init__(self):
+        self.__authors = {}
 
-    def get_age(self):
-        return self.__age
+    def add_author_post(self, author):
+        self.__authors[author.lower()] = self.__authors.get(author.lower(), 0) + 1
 
-    def set_age (self, age):
-        self.__age = int(age)
+    def __getitem__(self, author):
+        return self.__authors.get(author.lower(), 0)
 
-    def get_summary(self):
-        return f"Name: {self.name}, Age: {self.__age}, Gender: {self.gender}"
+    def __setitem__(self, author, post_count):
+        self.__authors[author.lower()] = post_count
 
-ps = Person('Justin Austin', 32, 'Male')   
-print(ps.get_age()) # Output: 32
-print(ps.name) # Output: Justin Austin
+    def __len__(self):
+        return len(self.__authors)
 
-# If explicitly call the private attribute like public, It must be displayed an Error. For Ex:
-print(ps.__age)
-# Output:
-# Traceback (most recent call last):
-#   File "Program/oop.py", line 45, in <module>
-#     print(ps.__age)
-# AttributeError: 'Person' object has no attribute '__age'
+    def __iter__(self):
+        return iter(self.__authors)
 
-print(ps._Person__age) # Output: 32 ->Note: It's not good practice
+    def __str__(self):
+        return str(self.__authors)
+
+
+author = Author()
+author.add_author_post('John')
+author.add_author_post('john')
+author.add_author_post('joe')
+author['mike'] = 15
+
+print(author) # {'john': 2, 'joe': 1, 'mike': 15}
+print(len(author)) # 3
+print(author['john']) # 2
+
+for author in author:
+    print(author) # john joe mike
 ```
 
 #### Inheritance
