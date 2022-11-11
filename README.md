@@ -24,6 +24,10 @@
 17. [OOPs](#oops)
 18. [Built-in Functions](#built-in-functions)
 19. [Check Program Performance](#check-program-performance)
+20. [Python Library](#python-library)
+    - [datetime](#datetime)
+    - [faker](#faker)
+    - [random](#random)
 
 ## Print Output
 ```python
@@ -1145,5 +1149,9 @@ print(timeit('li.insert(0, 100)', number=100000, globals=globals()))
 print(timeit('dq.appendleft(100)', number=100000, globals=globals()))
 # Output: 0.006301867000729544
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+# Python Library
 
 **[⬆ back to top](#table-of-contents)**
