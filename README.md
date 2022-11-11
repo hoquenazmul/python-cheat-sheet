@@ -153,7 +153,98 @@ print(factorial(5)) # Output: 120
 **[⬆ back to top](#table-of-contents)**
 
 # Decorators
+```python
+# before using decorator
+def setup(func):
+    def wrapper():
+        print("Start Executing")
+        func()
+        print("End Executing")
+    return wrapper
 
+def test_login():
+    print("Login Test")
+
+setup(test_login)()
+# or
+result = setup(test_login)
+result()
+# Start Executing
+# Login Test
+# End Executing
+
+
+# using decorators
+def setup(func):
+    def wrapper():
+        print("Start Executing")
+        func()
+        print("End Executing")
+    return wrapper
+
+@setup
+def test_login():
+    print("Login Test")
+
+test_login()
+# Start Executing
+# Login Test
+# End Executing
+```
+```python
+# parameterized decorated method
+def before_after(func):
+    def wrapper(*args, **kwargs):
+        print("Before")
+        func(*args, **kwargs)
+        print("After")
+    return wrapper
+
+@before_after
+def execute_script(feature):
+    print(feature, "Script Executed")
+
+execute_script("Login")
+# Before
+# Login Script Executed
+# After
+```
+```python
+# return decorated method
+def setup(func):
+    def wrapper(*args):
+        print("Start Executing")
+        val = func(*args)
+        print("End Executing")
+        return val
+    return wrapper
+
+@setup
+def test_login(feature):
+    return f"{feature} Test"
+
+print(test_login("Login"))
+# Start Executing
+# End Executing
+# Login Test
+```
+```python
+# A good example of decorator
+import time
+
+def check_execution_time(func):
+    def wrapper():
+        before = time.time()
+        func() 
+        print(f"Execution Time = {time.time() - before} seconds")
+    return wrapper
+
+@check_execution_time
+def take_rest():
+    time.sleep(2)
+
+take_rest() # Execution Time = 2.001185894012451 seconds
+```
 **[⬆ back to top](#table-of-contents)**
 
 # Control Flow & Short Handif
