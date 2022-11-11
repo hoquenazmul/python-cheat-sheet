@@ -473,54 +473,41 @@ print(a_set.symmetric_difference(b_set)) # Output: {1, 3, 5, 6}
 **[⬆ back to top](#table-of-contents)**
 
 # Dictionary
->person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
+>person = { 'name': 'John Doe', 'country': 'USA', 'age': 30 }
 
-#### Access the Dictionary Item
+#### Access Dictionary Item
 ```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
-print(person['name']) # Output: John Doe
-print(person['country']) # Output: usa
-print(person.get('name')) # Output: John Doe
+person = { 'name': 'John Doe', 'country': 'USA', 'age': 30 }
+
+print(person['name']) # John Doe (Throw KeyError exception, if key is not exist)
+print(person.get('name')) # John Doe
 ```
 #### Dictionary Comprehension
 ```python
+user = {'name': 'Joe', 'email': 'joe@joe.com', 'phone': '456-888-2223'}
+
+usr_data = [data for _, data in user.items()]
+print(usr_data) # ['Joe', 'joe@joe.com', '456-888-2223']
+
 nums = {x: x * x for x in range(1, 6)}
-print(nums)
-# Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+print(nums) # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
-#### Add the property in Dictionar
+#### Dictionary Methods
 ```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
-person['city'] = 'New York'
-print(person) 
-# Output: {'name': 'John Doe', 'country': 'usa', 'age': 30, 'city': 'New York'}
+person = { 'name': 'John Doe', 'country': 'USA', 'age': 30 }
+
+person['city'] = 'Brooklyn' # {'name': 'John Doe', 'country': 'USA', 'age': 30, 'city': 'Brooklyn'} (dict key should be unique)
+person.pop('age') # {'name': 'John Doe', 'country': 'USA', 'city': 'Brooklyn'}
+person.update({'name': 'Joe', 'email': 'joe@joe.com'})
+# Output: {'name': 'Joe', 'country': 'USA', 'city': 'Brooklyn', 'email': 'joe@joe.com'}
+person.clear() # {}
 ```
-#### Remove the Item of Dictionary
 ```python
 person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
-person.pop('age')
-print(person) # Output: {'name': 'John Doe', 'country': 'usa'}
-```
-#### Clear the Dictionary
-```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
-person.clear()
-print(person) # Output: {}
-```
-#### Dictionary Keys
-```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
+
 print(person.keys()) # Output: dict_keys(['name', 'country', 'age'])
-```
-#### Dictionary Values
-```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
 print(person.values()) # Output: dict_values(['John Doe', 'usa', 30])
-```
-#### Print the Items of Dictionary
-```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
 print(person.items()) # Output: dict_items([('name', 'John Doe'), ('country', 'usa'), ('age', 30)])
 ```
 #### Loop in Dictionary
@@ -532,18 +519,6 @@ for key in person:
 # Print the Values of Dictionary
 for key in person:
     print (person[key]) # Output: John Doe usa 30
-```
-#### Create the new Instance of a Dictionary
-```python
-person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
-a_person = person.copy()
-# Before Changing 
-print(person) # Output: {'name': 'John Doe', 'country': 'usa', 'age': 30}
-print(a_person) # Output: {'name': 'John Doe', 'country': 'usa', 'age': 30}
-# After Changing 
-a_person['gender'] = 'Male'
-print(person) # Output: {'name': 'John Doe', 'country': 'usa', 'age': 30}
-print(a_person) # Output: {'name': 'John Doe', 'country': 'usa', 'age': 30, 'gender': 'Male'}
 ```
 
 **[⬆ back to top](#table-of-contents)**
