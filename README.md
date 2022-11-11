@@ -75,14 +75,9 @@ type([1, 2, 3]) # Output: <class 'list'>
 ### Type Conversion
 ```python
 int('100') # String -> Integer
-str(100) # Integer -> String
-float(10) # Integer -> Float
 list((1, 2, 3)) # Tuple -> List
-list({1, 2, 3}) # Set -> List
 tuple([1, 2, 3]) # List -> Tuple
-tuple({1, 2, 3}) # Set -> Tuple
 set([1, 2, 3]) # List -> Set
-set((1, 2, 3)) # Tuple -> Set
 
 # Also Change Data Type Using *
 tpl = (1, 2, 3)
@@ -106,12 +101,12 @@ print(say_hello("John", 'Hey')) # Output: Hey, John
 
 ### Arguments
 ```python
-# It'll be return a Tuple
+# xargs => return a Tuple
 def get_nums (*nums):
     return nums
 print(get_nums(2, 3, 4, 5, 6)) # Output: (2, 3, 4, 5, 6)
 
-# It'll be return a Dictionary
+# xxargs => return a Dictionary
 def get_data (**data):
     return data
 print(get_data(name='John Doe', age=20)) # Output: {'name': 'John Doe', 'age': 20}
@@ -153,25 +148,25 @@ print(factorial(5)) # Output: 120
 
 # Control Flow & Short Handif
 ```python
-a, b, c = 100, 200, 300
-if a > b and a > c:
-    print(f"{a} is biggest number!")
-elif b > a and b > c:
-    print(f"{b} is biggest number!")
-else: 
-    print(f"{c} is a biggest number!")
+high_income, good_credit, student = True, True, True
 
-# Output: 300 is a biggest number!
+if high_income and good_credit and not student:
+    print("Eligible")
+else:
+    print("Not Eligible") # Not Eligible
+
+# Chaining Comparison Operators
+age = 35
+if 18 < age < 65:
+    print("Eligible") # Eligible
+else:
+    print("Not Eligible")
 ```
 
 ## Short Hand if...else
 ```python
-# value_if_true if condition else value_if_false
-print(a) if a > b else print(b) if b > a else print(a, b) # Output: 200
-
-a, b = 100, 200
-print(f"{a} > {b} or {a} < {b}") if a > b or a < b else print(f"{a} = {b}")
-# Output: 100 > 200 or 100 < 200
+temperature = 45
+weather = "Cold" if temperature <= 30 else "Warm" if 30 < temperature <= 60 else "Hot" # Warm
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -193,7 +188,7 @@ while (counter <= 10):
 for item in range(0, 11, 2):
     print(item, end=' ')  # Print Even: 0 2 4 6 8 10
 
-# Create a List Using For
+# List Comprehension [Expression for item in items]
 li = [item for item in range(1, 5)]
 print(li) # Output: [1, 2, 3, 4]
 ```
@@ -264,6 +259,8 @@ print(txt.upper()) # HELLO WORLD
 print(txt.lower()) # hello world
 print(txt.title()) # Hello World
 print(txt.isupper(), txt.islower(), txt.istitle()) # False False False
+
+print("Hell" in txt) # True
 ```
 
 # List
