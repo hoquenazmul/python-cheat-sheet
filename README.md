@@ -16,7 +16,7 @@
 9. [Tuple](#tuple)
 10. [Set](#set)
 11. [Dictionary](#dictionary)
-12. [Map, Filter & List Comprehension](#map,-filter--list-comprehension)
+12. [Map, Filter & List Comprehension](#map-filter--list-comprehension)
 12. [File in Python](#file-in-python)
 13. [Iterators & Generators](#iterators--generators)
 14. [Error Handling](#error-handling)
@@ -1041,18 +1041,6 @@ print(bin(10)) # Output: 0b1010
 print(oct(70)) # Output: 0o106
 print(hex(1000)) # Output: 0x3e8
 print(format(1000, 'x')) # Output: 3e8 (hex of 1000)
-```
-
-#### Data Type Related Built-in Functions
-```python
-str()
-int()
-float()
-list()
-tuple()
-set()
-dict()
-frozenset()
 ```
 
 **[⬆ back to top](#table-of-contents)**
