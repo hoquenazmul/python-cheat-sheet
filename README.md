@@ -196,7 +196,7 @@ print(li) # Output: [1, 2, 3, 4]
 **[⬆ back to top](#table-of-contents)**
 
 # Loop Exception
-**When the loop iteration is completed, then the 'StopIteration Exception' & 'else' execute.**
+**When loop completed, then the 'StopIteration Exception' & 'else' will be execute.**
 ```python
 for item in range(1,4):
     print(item)
@@ -205,7 +205,7 @@ else:
 # Output: 1 2 3
 # Item Finished!
 ```
-**If the loop iteration isn't completed, 'StopIteration Exception' & 'else' won't execute.**
+**If loop not finished, 'StopIteration Exception' & 'else' won't be executed.**
 ```python
 for i in range(1, 5):
     if i > 3:
@@ -215,7 +215,7 @@ else:
     print('Iteration Complete!')
 # Output: 1 2 3
 ```
-**Implementing Loop Exception logic, We can create efficient program. Such as:**
+**A Good Example of Loop Exception**
 ```python
 def check_prime(num):
     for i in range(2, num):
@@ -264,47 +264,31 @@ print("Hell" in txt) # True
 ```
 
 # List
->li = [1, 2, 3, 4, 5] (Mutable)
+>li = [1, 2, 3, 4, 5] (Mutable | CRUD Possible)
 #### Access the List Item
 ```python
 li = [1, 2, 3, 4, 5]
-print(li[1]) # Output: 2
-print(li[-1]) # Output: 5 (-1 return the last item)
+print(li[1], li[-1]) # Output: 2 5
 print(li[1:3]) # Output: [2, 3]
 ```
 #### Concatenate List
 ```python
 li1, li2 = [1, 2, 3], [4, 5, 6]
-li_items = li1 + li2
-print(li_items) # Output: [1, 2, 3, 4, 5, 6]
-```
-```python
-# Concatenated the 2nd List with 1st List
-li1, li2 = [1, 2, 3], [4, 5, 6]
+
+print(li1 + li2) # [1, 2, 3, 4, 5, 6]
+print([*li1, *li2, 100]) # [1, 2, 3, 4, 5, 6, 100]
+
 li1.extend(li2)
-print(li1) # Output: [1, 2, 3, 4, 5, 6]
+print(li1) # [1, 2, 3, 4, 5, 6]
 ```
 
 #### Unpacking List
 ```python
-names = ['John', 'Doe', 'Foo', 'Bar']
-first_user, seccod_user, *other_users, last_user = names
-print(first_user, seccod_user, last_user) # Output: John Doe Bar
-print(other_users) # Output: ['Foo']
-```
+employees = ['John', 'Doe', 'Mike', 'Clark', 'David']
 
-#### Check the Existence of List Item
-```python
-names = ['John', 'Doe', 'Foo', 'Bar']
-print('John' in names) # Output: True
-print('Hello' in names) # Output: False
-```
+first_employee, *others, last_employee = employees
 
-#### Print the List Item using For Loop
-```python
-nums = [23, 33, 52, 65, 76, 28, 32]
-for item in nums:
-    print(item)
+print(first_employee, others, last_employee) # John ['Doe', 'Mike', 'Clark'] David
 ```
 
 #### List Comprehension
@@ -315,106 +299,62 @@ even_nums = [num for num in nums if num % 2 == 0]
 print(even_nums) # Output: [52, 76, 28, 32]
 ```
 
-#### List Conversion
+### Add List Item
 ```python
-li = [1, 2, 3, 4, 5]
-print(tuple(li)) # Output: (1, 2, 3, 4, 5)
-print(set(li)) # Output: {1, 2, 3, 4, 5}
-```
-### Insert the List Item
-```python
-# Add Item in the Last
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.append('Hudson') 
-print(names) # Output: ['John', 'Doe', 'Foo', 'Bar', 'Hudson']
-```
-```python
-# Add Item in the First
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.insert(0, 'Michel') 
-print(names) # Output: ['Michel', 'John', 'Doe', 'Foo', 'Bar']
-```
-```python
-# Add Item in the any position
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.insert(2, 'Watson') 
-print(names) # Output: ['John', 'Doe', 'Watson', 'Foo', 'Bar']
+names = ['John', 'Doe']
+
+names.append('David') # ['John', 'Doe', 'David'] (add at Last)
+names.insert(0, 'Mike') # ['Mike', 'John', 'Doe', 'David'] (add at any specific position)
 ```
 
-### Remove Item from List
+### Remove List Item
 ```python 
-# Remove the last Element
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.pop()
-print(names) # Output: ['John', 'Doe', 'Foo']
+names = ['Mike', 'John', 'Doe', 'David', 'Max', 'Joe', 'Root']
+
+names.pop() # ['Mike', 'John', 'Doe', 'David', 'Max', 'Joe'] (remove item at Last)
+names.pop(0) # ['John', 'Doe', 'David', 'Max', 'Joe'] (remove any item using index)
+names.remove('John') # ['Doe', 'David', 'Max', 'Joe'] (remove any specific item)
+del names[0:2] # ['Max', 'Joe'] (remove series of items)
+names.clear() # [] (remove all items)
 ```
+### Sort List Items
 ```python 
-# Remove any existing item passing index in pop(index)
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.pop(0)
-print(names) # Output: ['Doe', 'Foo', 'Bar']
+nums = [23, 33, 52, 65, 76, 28, 32]
+
+print(nums.sort()) # None (only sort the list and return None not list)
+print(nums) # [23, 28, 32, 33, 52, 65, 76]
+
+print(sorted(nums)) # [23, 28, 32, 33, 52, 65, 76] (return a list after sorting)
+print(sorted(nums, reverse=True)) # [76, 65, 52, 33, 32, 28, 23] (sorting DESC order)
+
+# Sorting Little Complex List
+products = [('product1', 75), ('product2', 124), ('product3', 44)]
+
+products.sort(key=lambda pd: pd[1])
+print(products) # [('product3', 44), ('product1', 75), ('product2', 124)]
+
+products.sort(key=lambda pd: pd[1], reverse=True)
+print(products) # [('product2', 124), ('product1', 75), ('product3', 44)]
 ```
-```python 
-# Remove Multiple Items
-names = ['John', 'Doe', 'Foo', 'Bar']
-del names[1:3]
-print(names) # Output: ['John', 'Bar']
+#### Reverse List Items
+```python
+emp = ['John', 'Joe', 'Max']
+
+print(emp[::-1]) # ['Max', 'Joe', 'John']
+print(emp.reverse()) # None
+print(emp) # ['Max', 'Joe', 'John']
+
+print(reversed(emp)) # <list_reverseiterator object at 0x000001EEA63FAC20>
 ```
-```python 
-# Remove item passing Value
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.remove('John')
-print(names) # Output: ['Doe', 'Foo', 'Bar']
-```
-```python 
-# Remove all items 
-names = ['John', 'Doe', 'Foo', 'Bar']
-names.clear()
-print(names) # Output: []
-```
-#### index() returns the Index of Item
+#### Other List Methods
 ```python
 li = [32, 54, 32, 43]
 print(li.index(32)) # Output: 0
-```
-
-#### count() counts the similar list item
-```python
-li = [32, 54, 32, 43]
 print(li.count(32)) # Output: 2
-```
-
-### Other Method of List
-```python
-# Sort the List Item
-nums = [23, 33, 52, 65, 76, 28, 32]
-nums.sort()
-print(nums) # Output: [23, 28, 32, 33, 52, 65, 76]
-```
-```python
-# Reverse the List Item
-nums = [23, 33, 52, 65, 76, 28, 32]
-nums.reverse()
-print(nums) # Output: [32, 28, 76, 65, 52, 33, 23]
-# or
-print(nums[::-1]) # Output: [32, 28, 76, 65, 52, 33, 23]
-```
-```python
-# copy() creates a new Instance of List. 
-nums = [23, 33, 52, 65, 76, 28, 32]
-nums2 = nums.copy()
-nums2.append(100)
-print(nums) # Outptu: [23, 33, 52, 65, 76, 28, 32]
-print(nums2) # Output: [23, 33, 52, 65, 76, 28, 32, 100]
-```
-```python
-# Shortcut Create List
-similar_nums = [4] * 10
-print(similar_nums) # Output: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 ```
 ```python
 # print the index & value using enumerate()
-nums = [23, 33, 52, 65, 76, 28, 32]
+nums = [23, 33, 52, 65]
 for index, value in enumerate(nums):
     print(index, value)
 # Output: 
@@ -422,9 +362,16 @@ for index, value in enumerate(nums):
 # 1 33
 # 2 52
 # 3 65
-# 4 76
-# 5 28
-# 6 32
+```
+```python
+# Check the List item existance
+names = ['John', 'Doe', 'Foo', 'Bar']
+print('John' in names) # Output: True
+```
+```python
+# Shortcut Create List
+similar_nums = [4] * 10
+print(similar_nums) # Output: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 ```
 **[⬆ back to top](#table-of-contents)**
 
