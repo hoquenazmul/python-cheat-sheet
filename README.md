@@ -9,20 +9,21 @@
 5. [Function & it's Arguments](#function--its-arguments)
     - [lambda](#lambda)
     - [Recursion](#recursion)
-6. [For & While Loop](#for--while-loop)
+6. [Decorators](#decorators)
+7. [For & While Loop](#for--while-loop)
     - [Loop Exception](#loop-exception)
-7. [String](#string)
-8. [List](#list)
-9. [Tuple](#tuple)
-10. [Set](#set)
-11. [Dictionary](#dictionary)
-12. [Map, Filter & List Comprehension](#map-filter--list-comprehension)
-12. [File in Python](#file-in-python)
-13. [Iterators & Generators](#iterators--generators)
-14. [Error Handling](#error-handling)
-15. [OOP](#oop)
-16. [Built-in Functions](#built-in-functions)
-17. [Check Program Performance](#check-program-performance)
+8. [String](#string)
+9. [List](#list)
+10. [Tuple](#tuple)
+11. [Set](#set)
+12. [Dictionary](#dictionary)
+13. [Map, Filter & List Comprehension](#map-filter--list-comprehension)
+14. [File in Python](#file-in-python)
+15. [Iterators & Generators](#iterators--generators)
+16. [Error Handling](#error-handling)
+17. [OOP](#oop)
+18. [Built-in Functions](#built-in-functions)
+19. [Check Program Performance](#check-program-performance)
 
 ## Print Output
 ```python
@@ -144,6 +145,10 @@ def factorial(num):
 
 print(factorial(5)) # Output: 120
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+# Decorators
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -533,10 +538,8 @@ product_prices = list(map(lambda pd: pd[1], products)) # [75, 124, 44]
 pd_prices = [price for _, price in products] # [75, 124, 44]
 
 # Filter VS List Comprehension
-costly_products = list(filter(lambda pd: pd[1] > 50, products))
-# [('product1', 75), ('product2', 124)]
-costly_products = [pd for pd in products if pd[1] > 50]
-# [('product1', 75), ('product2', 124)]
+costly_products = list(filter(lambda pd: pd[1] > 50, products)) # [('product1', 75), ('product2', 124)]
+costly_products = [pd for pd in products if pd[1] > 50] # [('product1', 75), ('product2', 124)]
 ```
 
 **[⬆ back to top](#table-of-contents)**
