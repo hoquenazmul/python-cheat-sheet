@@ -687,10 +687,10 @@ with open('hello.txt', 'r') as fp:
 
 # Iterators & Generators
 **Iterators**
- <img src="Program/iterator.png"> 
+ <img src="images/iterator.png"> 
 
 **Generators**
- <img src="Program/generator.png">
+ <img src="images/generator.png">
 
 **[⬆ back to top](#table-of-contents)**
 
