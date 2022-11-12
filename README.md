@@ -264,7 +264,7 @@ else:
     print("Not Eligible")
 ```
 
-## Short Hand if...else
+#### Short Hand if...else
 ```python
 temperature = 45
 weather = "Cold" if temperature <= 30 else "Warm" if 30 < temperature <= 60 else "Hot" # Warm
@@ -296,7 +296,7 @@ print(li) # [1, 2, 3, 4]
 
 **[⬆ back to top](#table-of-contents)**
 
-# Loop Exception
+#### Loop Exception
 **When loop completed, then the 'StopIteration Exception' & 'else' will be execute.**
 ```python
 for item in range(1,4):
@@ -1351,7 +1351,7 @@ print(timeit('dq.appendleft(100)', number=100000, globals=globals()))
 **[⬆ back to top](#table-of-contents)**
 
 # Python Library
-### datetime & timedelta
+## datetime & timedelta
 |   Directive     |     Example     |   Directive   |     Example    
 |-----------------|-----------------|---------------|--------------
 |`%a`|Sun         |`%A`             |Sunday 
@@ -1396,7 +1396,7 @@ print(td.seconds) # 75394
 print(td.total_seconds()) # 405550594.348977
 ```
 **[⬆ back to top](#table-of-contents)**
-### random & string
+## random & string
 ```python
 import random
 
@@ -1424,7 +1424,9 @@ strong_password = "".join(random.choices(combined_string, k=8))
 print(strong_password) # WA3k*?D5
 print(strong_password) # R?BGDNj<
 ```
-### faker
+**[⬆ back to top](#table-of-contents)**
+
+## faker
 ```python
 from faker import Faker
 
@@ -1480,3 +1482,4 @@ test_status = DynamicProvider(
 fake.add_provider(test_status)
 print(fake.test_status()) # Failed (randomly picks one like random.choice())
 ```
+**[⬆ back to top](#table-of-contents)**
