@@ -32,19 +32,19 @@
 ## Print Output
 ```python
 # Print Somthing
-print("Hello World")  # Output: Hello World
+print("Hello World")  # Hello World
 
 name = "John Doe"
 age = 30
 # Print Multiple Data
-print(name, age)  # Output: John Doe 30
+print(name, age)  # John Doe 30
 
 # Print Horizontally - Default end="\n"
 for item in range(5):
-    print(item, end=' ')  # Output: 0 1 2 3 4
+    print(item, end=' ')  # 0 1 2 3 4
 
 # Escape Sequences
-print("Hello \'World\'") # Output: Hello 'World'
+print("Hello \'World\'") # Hello 'World'
 ```
 
 ## Variable
@@ -75,7 +75,7 @@ name, age = 'John Doe', 30
 10. complex -> 1j
 
 # Type Checking Method
-type([1, 2, 3]) # Output: <class 'list'>
+type([1, 2, 3]) # <class 'list'>
 ```
 
 ### Type Conversion
@@ -88,7 +88,7 @@ set([1, 2, 3]) # List -> Set
 # Also Change Data Type Using *
 tpl = (1, 2, 3)
 tpl_to_list = [*tpl]
-print(tpl_to_list) # Output: [1, 2, 3]
+print(tpl_to_list) # [1, 2, 3]
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -97,12 +97,12 @@ print(tpl_to_list) # Output: [1, 2, 3]
 # Normal Function Defination
 def add (num1, num2):
     return num1 + num2 
-print(add(25, 10)) # Output: 35
+print(add(25, 10)) # 35
 
 # Set a Default Argument
 def say_hello (name, greeting="Hello"):
     return f"{greeting}, {name}"
-print(say_hello("John", 'Hey')) # Output: Hey, John
+print(say_hello("John", 'Hey')) # Hey, John
 ```
 
 ### Arguments
@@ -110,12 +110,12 @@ print(say_hello("John", 'Hey')) # Output: Hey, John
 # xargs => return a Tuple
 def get_nums (*nums):
     return nums
-print(get_nums(2, 3, 4, 5, 6)) # Output: (2, 3, 4, 5, 6)
+print(get_nums(2, 3, 4, 5, 6)) # (2, 3, 4, 5, 6)
 
 # xxargs => return a Dictionary
 def get_data (**data):
     return data
-print(get_data(name='John Doe', age=20)) # Output: {'name': 'John Doe', 'age': 20}
+print(get_data(name='John Doe', age=20)) # {'name': 'John Doe', 'age': 20}
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -123,16 +123,16 @@ print(get_data(name='John Doe', age=20)) # Output: {'name': 'John Doe', 'age': 2
 ```python
 # lambda arguments : expression
 func1 = lambda x, y: x + y
-print(func1(1, 2)) #Output: 3
+print(func1(1, 2)) #3
 
 func2 = lambda x, y=2: x + y
-print(func2(1)) #Output: 3
+print(func2(1)) #3
 
 func3 = lambda *args: args
-print(func3(1, 2)) #Output: (1, 2)
+print(func3(1, 2)) #(1, 2)
 
 func4 = lambda **args: args
-print(func4(name='John Doe', age=30)) #Output: {'name': 'John Doe', 'age': 30}
+print(func4(name='John Doe', age=30)) #{'name': 'John Doe', 'age': 30}
 
 # lmbda IIFE
 (lambda num1, num2: num1 * num2)(10, 5)
@@ -147,7 +147,7 @@ def factorial(num):
     else:
         return num * factorial(num-1)
 
-print(factorial(5)) # Output: 120
+print(factorial(5)) # 120
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -281,7 +281,7 @@ while (counter <= 10):
         continue
     if counter > 5:
         break
-    print(counter)  # Output: 1 2 4 5
+    print(counter)  # 1 2 4 5
 ```
 
 ### For Loop
@@ -291,7 +291,7 @@ for item in range(0, 11, 2):
 
 # List Comprehension [Expression for item in items]
 li = [item for item in range(1, 5)]
-print(li) # Output: [1, 2, 3, 4]
+print(li) # [1, 2, 3, 4]
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -303,7 +303,7 @@ for item in range(1,4):
     print(item)
 else:
     print('Item Finished!')
-# Output: 1 2 3
+# 1 2 3
 # Item Finished!
 ```
 **If loop not finished, 'StopIteration Exception' & 'else' won't be executed.**
@@ -314,7 +314,7 @@ for i in range(1, 5):
     print(i)
 else:
     print('Iteration Complete!')
-# Output: 1 2 3
+# 1 2 3
 ```
 **A Good Example of Loop Exception**
 ```python
@@ -370,8 +370,8 @@ print("Hell" in txt) # True
 #### Access the List Item
 ```python
 li = [1, 2, 3, 4, 5]
-print(li[1], li[-1]) # Output: 2 5
-print(li[1:3]) # Output: [2, 3]
+print(li[1], li[-1]) # 2 5
+print(li[1:3]) # [2, 3]
 ```
 #### Concatenate List
 ```python
@@ -398,7 +398,7 @@ print(first_employee, others, last_employee) # John ['Doe', 'Mike', 'Clark'] Dav
 nums = [23, 33, 52, 65, 76, 28, 32]
 
 even_nums = [num for num in nums if num % 2 == 0]
-print(even_nums) # Output: [52, 76, 28, 32]
+print(even_nums) # [52, 76, 28, 32]
 ```
 
 ### Add List Item
@@ -451,15 +451,14 @@ print(reversed(emp)) # <list_reverseiterator object at 0x000001EEA63FAC20>
 #### Other List Methods
 ```python
 li = [32, 54, 32, 43]
-print(li.index(32)) # Output: 0
-print(li.count(32)) # Output: 2
+print(li.index(32)) # 0
+print(li.count(32)) # 2
 ```
 ```python
 # print the index & value using enumerate()
 nums = [23, 33, 52, 65]
 for index, value in enumerate(nums):
     print(index, value)
-# Output: 
 # 0 23
 # 1 33
 # 2 52
@@ -468,12 +467,12 @@ for index, value in enumerate(nums):
 ```python
 # Check the List item existance
 names = ['John', 'Doe', 'Foo', 'Bar']
-print('John' in names) # Output: True
+print('John' in names) # True
 ```
 ```python
 # Shortcut Create List
 similar_nums = [4] * 10
-print(similar_nums) # Output: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+print(similar_nums) # [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -485,7 +484,7 @@ Tuple => (Immutable & Read Only, Not possible to add, modify & delete item)
 #### Access the Tuple Item
 ```python
 tpl = (10, 20, 30, 40, 50, 60)
-print(tpl[2:5]) # Output: (30, 40, 50)
+print(tpl[2:5]) # (30, 40, 50)
 ```
 
 #### Unpack the Tuple Item
@@ -493,7 +492,7 @@ print(tpl[2:5]) # Output: (30, 40, 50)
 users = ("Joe", "John", "Root", "Justin", "Foo")
 
 user_one, *other_users, last_user = users 
-print(user_one, other_users, last_user) # Output: Joe ['John', 'Root', 'Justin'] Foo
+print(user_one, other_users, last_user) # Joe ['John', 'Root', 'Justin'] Foo
 ```
 
 #### Tuple Methods
@@ -501,9 +500,9 @@ print(user_one, other_users, last_user) # Output: Joe ['John', 'Root', 'Justin']
 # Find the index of Tuple
 users = ("Joe", "John", "Root", "Justin", "Joe")
 
-print(users.index('John')) # Output: 1
-print(users.count('Joe')) # Output: 2
-print('Joe' in users) # Output: True
+print(users.index('John')) # 1
+print(users.count('Joe')) # 2
+print('Joe' in users) # True
 ```
 
 #### Tuple Comprehension => Generator (Faster)
@@ -512,7 +511,7 @@ print('Joe' in users) # Output: True
 users = ("Joe", "John", "Root", "Justin", "Foo")
 
 gen = (item for item in users)
-print(type(gen)) # Output: <class 'generator'>
+print(type(gen)) # <class 'generator'>
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -522,8 +521,8 @@ Set => Remove Duplicate, Possible to add, remove, delete item but not able to ac
 
 ### Remove the Duplicate item of List & Tuple
 ```python
-print(set((22, 23, 22, 23))) # Output: {22, 23}
-print(set([54, 50, 50, 55])) # Output: {50, 54, 55}
+print(set((22, 23, 22, 23))) # {22, 23}
+print(set([54, 50, 50, 55])) # {50, 54, 55}
 ```
 
 #### Set Methods
@@ -540,36 +539,36 @@ nums.clear() # set()
 ```python
 a_set = {1, 2, 3, 4}
 b_set = {2, 4, 5, 6}
-print(a_set | b_set) # Output: {1, 2, 3, 4, 5, 6}
+print(a_set | b_set) # {1, 2, 3, 4, 5, 6}
 # or
-print(a_set.union(b_set)) # Output: {1, 2, 3, 4, 5, 6}
+print(a_set.union(b_set)) # {1, 2, 3, 4, 5, 6}
 ```
 
 #### Intersection
 ```python
 a_set = {1, 2, 3, 4}
 b_set = {2, 4, 5, 6}
-print(a_set & b_set) # Output: {2, 4}
+print(a_set & b_set) # {2, 4}
 # or
-print(a_set.intersection(b_set)) # Output: {2, 4}
+print(a_set.intersection(b_set)) # {2, 4}
 ```
 
 #### Difference
 ```python
 a_set = {1, 2, 3, 4}
 b_set = {2, 4, 5, 6}
-print(a_set - b_set) # Output: {1, 3}
+print(a_set - b_set) # {1, 3}
 # or
-print(a_set.difference(b_set)) # Output: {1, 3}
+print(a_set.difference(b_set)) # {1, 3}
 ```
 
 #### Symmetric Difference
 ```python
 a_set = {1, 2, 3, 4}
 b_set = {2, 4, 5, 6}
-print(a_set ^ b_set) # Output: {1, 3, 5, 6}
+print(a_set ^ b_set) # {1, 3, 5, 6}
 # or
-print(a_set.symmetric_difference(b_set)) # Output: {1, 3, 5, 6}
+print(a_set.symmetric_difference(b_set)) # {1, 3, 5, 6}
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -601,25 +600,25 @@ person = { 'name': 'John Doe', 'country': 'USA', 'age': 30 }
 person['city'] = 'Brooklyn' # {'name': 'John Doe', 'country': 'USA', 'age': 30, 'city': 'Brooklyn'} (dict key should be unique)
 person.pop('age') # {'name': 'John Doe', 'country': 'USA', 'city': 'Brooklyn'}
 person.update({'name': 'Joe', 'email': 'joe@joe.com'})
-# Output: {'name': 'Joe', 'country': 'USA', 'city': 'Brooklyn', 'email': 'joe@joe.com'}
+# {'name': 'Joe', 'country': 'USA', 'city': 'Brooklyn', 'email': 'joe@joe.com'}
 person.clear() # {}
 ```
 ```python
 person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
 
-print(person.keys()) # Output: dict_keys(['name', 'country', 'age'])
-print(person.values()) # Output: dict_values(['John Doe', 'usa', 30])
-print(person.items()) # Output: dict_items([('name', 'John Doe'), ('country', 'usa'), ('age', 30)])
+print(person.keys()) # dict_keys(['name', 'country', 'age'])
+print(person.values()) # dict_values(['John Doe', 'usa', 30])
+print(person.items()) # dict_items([('name', 'John Doe'), ('country', 'usa'), ('age', 30)])
 ```
 #### Loop in Dictionary
 ```python
 # Print the Keys of Dictionary
 person = { 'name': 'John Doe', 'country': 'usa', 'age': 30 }
 for key in person:
-    print (key) # Output: name country age
+    print (key) # name country age
 # Print the Values of Dictionary
 for key in person:
-    print (person[key]) # Output: John Doe usa 30
+    print (person[key]) # John Doe usa 30
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -652,7 +651,6 @@ with open('hello.txt', 'w') as fp:
 ```python
 with open('hello.txt', 'r') as fp:
     print(fp.read())
-# Output:
 # Hello World
 # Another Text
 # Python is Awesom
@@ -664,13 +662,13 @@ with open('hello.txt', 'r') as fp:
     for line in fp.readlines():
         lines.append(line)
 print(lines) 
-# Output: ['Hello World\n', 'Another Text\n', 'Python is Awesom\n']
+# ['Hello World\n', 'Another Text\n', 'Python is Awesom\n']
 ```
 #### Read the First Line using readline()
 ```python
 with open('hello.txt', 'r') as fp:
     print(fp.readline())
-# Output: Hello World
+# Hello World
 ```
 #### Add a new line in a Existing File using Append Mode
 ```python
@@ -679,7 +677,6 @@ with open('hello.txt', 'a') as fp:
 
 with open('hello.txt', 'r') as fp:
     print(fp.read())
-# Output: 
 # Hello World
 # Another Text
 # Python is Awesom
@@ -750,10 +747,10 @@ class Person:
         return f"Name: {self.name}, Age: {self.age}, Gender: {self.gender}"
 
 ps = Person('John Doe', 25, 'Male')    
-print(ps) # Output: <__main__.Person object at 0x7ff86530b040>
-print(ps.__dict__) # Output: {'name': 'John Doe', 'age': 25, 'gender': 'Male'}
+print(ps) # <__main__.Person object at 0x7ff86530b040>
+print(ps.__dict__) # {'name': 'John Doe', 'age': 25, 'gender': 'Male'}
 print(ps.name) # John Doe
-print(ps.get_summary()) # Output: Name: John Doe, Age: 25, Gender: Male
+print(ps.get_summary()) # Name: John Doe, Age: 25, Gender: Male
 ```
 #### Class vs Instance Property
 ```python
@@ -955,10 +952,10 @@ class Square(Rectangle):
         return self.size * self.size
 
 rc = Rectangle(5, 4)
-print(rc.get_area()) # Output: 20
+print(rc.get_area()) # 20
 
 sq = Square(5)
-print(sq.get_area()) # Output: 25
+print(sq.get_area()) # 25
 ```
 **[⬆ back to top](#table-of-contents)**
 
@@ -968,39 +965,39 @@ print(sq.get_area()) # Output: 25
 #### all()
 all() retuns False, if any the of iterable object item is Falsy, Otherwise it returns True
 ```python
-print(all([])) # Output: True
-print(all([1, 2, 3])) # Output: True
-print(all([1, 2, 0])) # Output: False
+print(all([])) # True
+print(all([1, 2, 3])) # True
+print(all([1, 2, 0])) # False
 ```
 
 #### any()
 any() returns False, if all of the iterable object item is Falsy or empty iterable like [], () etc. Otherwise it returns True
 ```python
-print(any([])) # Output: False
-print(any([1, 2, 3])) # Output: True
-print(any([1, 2, 0])) # Output: True
-print(any([0, False, ''])) # Output: False
+print(any([])) # False
+print(any([1, 2, 3])) # True
+print(any([1, 2, 0])) # True
+print(any([0, False, ''])) # False
 ```
 #### map()
 ```python
 def get_double(item):
     return item + item
 mapped = map(get_double, [2, 3, 4])
-print(mapped) # Output: <map object at 0x0000023AF5BCA1F0>
+print(mapped) # <map object at 0x0000023AF5BCA1F0>
 # Readable map object
-print(list(mapped)) # Output: [4, 6, 8]
+print(list(mapped)) # [4, 6, 8]
 
 # Implement Map with magic lambda function
 mapped_obj = map(lambda x: x + x, [2, 3, 4])
 mapped_list = list(mapped_obj)
-print(mapped_list) # Same Output: [4, 6, 8]
+print(mapped_list) # Same [4, 6, 8]
 
 # or Simply 
-print(list(map(lambda x: x + x, [2, 3, 4]))) # Output: [4, 6, 8]
+print(list(map(lambda x: x + x, [2, 3, 4]))) # [4, 6, 8]
 
 # We Can pass multiple iterable object as arg
 print(list(map(lambda first_li_item, seccond_li_item: first_li_item + seccond_li_item, [1, 2, 3], [100, 200, 300])))
-# Output: [101, 202, 303]
+# [101, 202, 303]
 ```
 
 #### filter()
@@ -1009,18 +1006,18 @@ def get_adult(age):
     if age > 18:
         return age
 filtered_age_obj = filter(get_adult, [22, 10, 12, 40, 32, 33, 15])
-print(filtered_age_obj) # Output: <filter object at 0x00000261B6F6A1F0>
+print(filtered_age_obj) # <filter object at 0x00000261B6F6A1F0>
 filtered_age_list = list(filtered_age_obj)
-print(filtered_age_list) # Output: [22, 40, 32, 33]
+print(filtered_age_list) # [22, 40, 32, 33]
 
 # Implement filter() using lambda function
 filtered_obj = filter(lambda age: age > 18, [22, 10, 12, 40, 32, 33, 15])
 filtered_list = list(filtered_obj)
-print(filtered_list) # Output: [22, 40, 32, 33]
+print(filtered_list) # [22, 40, 32, 33]
 
 # Or Simply print in one line
 print(list(filter(lambda age: age > 18, [22, 10, 12, 40, 32, 33, 15])))
-# Exactly Same Output: [22, 40, 32, 33]
+# Exactly Same [22, 40, 32, 33]
 ```
 
 #### sorted()
@@ -1028,28 +1025,28 @@ print(list(filter(lambda age: age > 18, [22, 10, 12, 40, 32, 33, 15])))
 # default sorted function -> sorted(iterable, key=None, reverse=False)
 
 # smaller -> bigger
-print(sorted([11, 2, 43, 10, 50, 5, 7])) #Output: [2, 5, 7, 10, 11, 43, 50]
+print(sorted([11, 2, 43, 10, 50, 5, 7])) #[2, 5, 7, 10, 11, 43, 50]
 
 # bigger -> smaller
 print(sorted([11, 2, 43, 10, 50, 5, 7], key=None, reverse=True)) 
-#Output: [50, 43, 11, 10, 7, 5, 2]
+#[50, 43, 11, 10, 7, 5, 2]
 ```
 
 #### reversed()
 ```python
-print(list(reversed([32,22,31]))) # Output: [31, 22, 32]
-print(tuple(reversed((32,22,31)))) # Output: (31, 22, 32)
-print(list(reversed((32,22,31)))) # Output: [31, 22, 32]
+print(list(reversed([32,22,31]))) # [31, 22, 32]
+print(tuple(reversed((32,22,31)))) # (31, 22, 32)
+print(list(reversed((32,22,31)))) # [31, 22, 32]
 
 # Reverse string
-print(''.join(reversed('Hello World'))) # Output: dlroW olleH
+print(''.join(reversed('Hello World'))) # dlroW olleH
 ```
 
 #### len()
 ```python
-print(len([2,3,4])) # Output: 3
-print(len({'name': 'John', 'age': 30}))  # Output: 2
-print(len('Hello'))  # Output: 5
+print(len([2,3,4])) # 3
+print(len({'name': 'John', 'age': 30}))  # 2
+print(len('Hello'))  # 5
 ```
 
 #### enumerate()
@@ -1057,7 +1054,7 @@ print(len('Hello'))  # Output: 5
 bd_players = ['Tamim Iqbal', 'Moshfiqur Rahim', 'Sakib Al Hasan', 'Mashrafi Mortaza', 'Mahmudullah Riad']
 # Start Default -> 0
 print(list(enumerate(bd_players, start=1)))
-# Output: [(1, 'Tamim Iqbal'), (2, 'Moshfiqur Rahim'), (3, 'Sakib Al Hasan'), (4, 'Mashrafi Mortaza'), (5, 'Mahmudullah Riad')]
+# [(1, 'Tamim Iqbal'), (2, 'Moshfiqur Rahim'), (3, 'Sakib Al Hasan'), (4, 'Mashrafi Mortaza'), (5, 'Mahmudullah Riad')]
 ```
 
 #### zip()
@@ -1068,84 +1065,84 @@ runs = [23, 55, 75, 10, 34]
 wickets = [0, 0, 4, 2, 3]
 
 print(list(zip(bd_players, runs, wickets)))
-# Output: [('Tamim Iqbal', 23, 0), ('Moshfiqur Rahim', 55, 0), ('Sakib Al Hasan', 75, 4), ('Mashrafi Mortaza', 10, 2), ('Mahmudullah Riad', 34, 3)]
+# [('Tamim Iqbal', 23, 0), ('Moshfiqur Rahim', 55, 0), ('Sakib Al Hasan', 75, 4), ('Mashrafi Mortaza', 10, 2), ('Mahmudullah Riad', 34, 3)]
 ```
 
 #### min(), max()
 ```python
-print(min([5, 2, 8, 1])) # Output: 1
-print(max([5, 2, 8, 1])) # Output: 8
+print(min([5, 2, 8, 1])) # 1
+print(max([5, 2, 8, 1])) # 8
 ```
 
 ### Math Related Built-in Functions
 
 #### sum()
 ```python
-print(sum([2, 3, 5])) # Output: 10
-print(sum((2, 3, 5))) # Output: 10
-print(sum({2, 3, 5})) # Output: 10
+print(sum([2, 3, 5])) # 10
+print(sum((2, 3, 5))) # 10
+print(sum({2, 3, 5})) # 10
 
 # We can define a start value as 2nd arg
-print(sum([2, 3], 10)) # Output: 15
+print(sum([2, 3], 10)) # 15
 ```
 #### divmod()
 divmod() takes two int as arguments and returns a tuple of two numbers where the 1st number is the quotient and the 2nd is the remainder.
 ```python
-print(divmod(10, 3)) # Output: (3, 1)
+print(divmod(10, 3)) # (3, 1)
 ```
 
 #### abs()
 ```python
-print(abs(-1)) # Output: 1
+print(abs(-1)) # 1
 ```
 
 #### round()
 ```python
-print(round(12.20)) # Output: 12
-print(round(12.55)) # Output: 13
+print(round(12.20)) # 12
+print(round(12.55)) # 13
 ```
 
 #### pow()
 ```python
-print(pow(3,2)) # Output: 9
-print(pow(3,3)) # Output: 27
-print(pow(5,2)) # Output: 25
+print(pow(3,2)) # 9
+print(pow(3,3)) # 27
+print(pow(5,2)) # 25
 ```
 
 #### min()
 ```python
-print(min(3, 2, 4, 7)) # Output: 2
-print(min([5, 2, 8, 1])) # Output: 1
+print(min(3, 2, 4, 7)) # 2
+print(min([5, 2, 8, 1])) # 1
 ```
 
 #### max()
 ```python
-print(max([5, 2, 8, 1])) # Output: 8
-print(max(10, 2, 8, 1)) # Output: 10
+print(max([5, 2, 8, 1])) # 8
+print(max(10, 2, 8, 1)) # 10
 ```
 
 #### range()
 ```python
-print([*range(5)]) # Output: [0, 1, 2, 3, 4]
-print([*range(0, 5, 2)]) # Output: [0, 2, 4]
+print([*range(5)]) # [0, 1, 2, 3, 4]
+print([*range(0, 5, 2)]) # [0, 2, 4]
 ```
 
 #### format()
 ```python
-print(format(10, '.2%')) # Output: 1000.00%
-print(format(100, 'b')) # Output: 1100100 (Binary of 100)
-print(format(100, 'o')) # Output: 144 (Octal of 100)
-print(format(1000, 'x')) # Output: 3e8 (hex of 1000)
-print(format(1000, 'X')) # Output: 3E8 (hex of 1000)
-print(format(10.0040, '.1f')) # Output: 10.0
-print(format(100000, ',')) # Output: 100,000
-print(format(100000, 'n')) # Output: 100000
-print(format(3.13592, '.2g')) # Output: 3.1
+print(format(10, '.2%')) # 1000.00%
+print(format(100, 'b')) # 1100100 (Binary of 100)
+print(format(100, 'o')) # 144 (Octal of 100)
+print(format(1000, 'x')) # 3e8 (hex of 1000)
+print(format(1000, 'X')) # 3E8 (hex of 1000)
+print(format(10.0040, '.1f')) # 10.0
+print(format(100000, ',')) # 100,000
+print(format(100000, 'n')) # 100000
+print(format(3.13592, '.2g')) # 3.1
 ```
 
 #### eval()
 ```python
-print(eval('2 + 5')) # Output: 7
+print(eval('2 + 5')) # 7
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1153,8 +1150,8 @@ print(eval('2 + 5')) # Output: 7
 ### Int -> Unicode & Unicode -> Int
 >chr(), ord()
 ```python
-print(ord('a')) # Output: 97
-print(chr(97))  # Output: a
+print(ord('a')) # 97
+print(chr(97))  # a
 ```
 
 ### Built-in Functions for Iterators
@@ -1162,8 +1159,8 @@ print(chr(97))  # Output: a
 iter() function is used to create iterable object & next() is used to access the item of Iterable Object.
 ```python
 itr = iter([5,2,3])
-print(type(itr)) # Output: <class 'list_iterator'>
-print(next(itr)) # Output: 5
+print(type(itr)) # <class 'list_iterator'>
+print(next(itr)) # 5
 ```
 
 ### Input & Ouput
@@ -1175,13 +1172,13 @@ print(name)
 #### Number System Related Built-in Functions
 >int(), bin(), oct(), hex(), format(value, first chr of number system)
 ```python
-print(int('10')) # Output: 10
-print(type(int('10'))) # Output: <class 'int'>
-print(int(0b1010)) # Output: 10
-print(bin(10)) # Output: 0b1010
-print(oct(70)) # Output: 0o106
-print(hex(1000)) # Output: 0x3e8
-print(format(1000, 'x')) # Output: 3e8 (hex of 1000)
+print(int('10')) # 10
+print(type(int('10'))) # <class 'int'>
+print(int(0b1010)) # 10
+print(bin(10)) # 0b1010
+print(oct(70)) # 0o106
+print(hex(1000)) # 0x3e8
+print(format(1000, 'x')) # 3e8 (hex of 1000)
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1192,13 +1189,13 @@ print(format(1000, 'x')) # Output: 3e8 (hex of 1000)
 dir() function returns list of the attributes and methods of any object like functions , modules, strings, lists, dictionaries etc. If no argument passed, it returns the list of names in the current local scope.
 ```python
 print(dir()) 
-# Output: ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
+# ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
 
 print(dir(list))
-# Output: ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+# ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
 
 print(dir(tuple))
-# Output: ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+# ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
 ```
 
 #### vars()
@@ -1209,10 +1206,10 @@ print(dir(tuple))
 name = "Justin"
 
 print(vars())
-# Output: {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x7f5182a994c0>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': 'Program/builtin.py', '__cached__': None, 'name': 'Justin'}
+# {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x7f5182a994c0>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': 'Program/builtin.py', '__cached__': None, 'name': 'Justin'}
 
 print(vars(list))
-# Output: {'__repr__': <slot wrapper '__repr__' of 'list' objects>, '__hash__': None, '__getattribute__': <slot wrapper '__getattribute__' of 'list' objects>, '__lt__': <slot wrapper '__lt__' of 'list' objects>, '__le__': <slot wrapper '__le__' of 'list' objects>, '__eq__': <slot wrapper '__eq__' of 'list' objects>, '__ne__': <slot wrapper '__ne__' of 'list' objects>, '__gt__': <slot wrapper '__gt__' of 'list' objects>, '__ge__': <slot wrapper '__ge__' of 'list' objects>, '__iter__': <slot wrapper '__iter__' of 'list' objects>, '__init__': <slot wrapper '__init__' of 'list' objects>, '__len__': <slot wrapper '__len__' of 'list' objects>, '__getitem__': <method '__getitem__' of 'list' objects>, '__setitem__': <slot wrapper '__setitem__' of 'list' objects>, '__delitem__': <slot wrapper '__delitem__' of 'list' objects>, '__add__': <slot wrapper '__add__' of 'list' objects>, '__mul__': <slot wrapper '__mul__' of 'list' objects>, '__rmul__': <slot wrapper '__rmul__' of 'list' objects>, '__contains__': <slot wrapper '__contains__' of 'list' objects>, '__iadd__': <slot wrapper '__iadd__' of 'list' objects>, '__imul__': <slot wrapper '__imul__' of 'list' objects>, '__new__': <built-in method __new__ of type object at 0x905e20>, '__reversed__': <method '__reversed__' of 'list' objects>, '__sizeof__': <method '__sizeof__' of 'list' objects>, 'clear': <method 'clear' of 'list' objects>, 'copy': <method 'copy' of 'list' objects>, 'append': <method 'append' of 'list' objects>, 'insert': <method 'insert' of 'list' objects>, 'extend': <method 'extend' of 'list' objects>, 'pop': <method 'pop' of 'list' objects>, 'remove': <method 'remove' of 'list' objects>, 'index': <method 'index' of 'list' objects>, 'count': <method 'count' of 'list' objects>, 'reverse': <method 'reverse' of 'list' objects>, 'sort': <method 'sort' of 'list' objects>, '__doc__': 'Built-in mutable sequence.\n\nIf no argument is given, the constructor creates a new empty list.\nThe argument must be an iterable if specified.'}
+# {'__repr__': <slot wrapper '__repr__' of 'list' objects>, '__hash__': None, '__getattribute__': <slot wrapper '__getattribute__' of 'list' objects>, '__lt__': <slot wrapper '__lt__' of 'list' objects>, '__le__': <slot wrapper '__le__' of 'list' objects>, '__eq__': <slot wrapper '__eq__' of 'list' objects>, '__ne__': <slot wrapper '__ne__' of 'list' objects>, '__gt__': <slot wrapper '__gt__' of 'list' objects>, '__ge__': <slot wrapper '__ge__' of 'list' objects>, '__iter__': <slot wrapper '__iter__' of 'list' objects>, '__init__': <slot wrapper '__init__' of 'list' objects>, '__len__': <slot wrapper '__len__' of 'list' objects>, '__getitem__': <method '__getitem__' of 'list' objects>, '__setitem__': <slot wrapper '__setitem__' of 'list' objects>, '__delitem__': <slot wrapper '__delitem__' of 'list' objects>, '__add__': <slot wrapper '__add__' of 'list' objects>, '__mul__': <slot wrapper '__mul__' of 'list' objects>, '__rmul__': <slot wrapper '__rmul__' of 'list' objects>, '__contains__': <slot wrapper '__contains__' of 'list' objects>, '__iadd__': <slot wrapper '__iadd__' of 'list' objects>, '__imul__': <slot wrapper '__imul__' of 'list' objects>, '__new__': <built-in method __new__ of type object at 0x905e20>, '__reversed__': <method '__reversed__' of 'list' objects>, '__sizeof__': <method '__sizeof__' of 'list' objects>, 'clear': <method 'clear' of 'list' objects>, 'copy': <method 'copy' of 'list' objects>, 'append': <method 'append' of 'list' objects>, 'insert': <method 'insert' of 'list' objects>, 'extend': <method 'extend' of 'list' objects>, 'pop': <method 'pop' of 'list' objects>, 'remove': <method 'remove' of 'list' objects>, 'index': <method 'index' of 'list' objects>, 'count': <method 'count' of 'list' objects>, 'reverse': <method 'reverse' of 'list' objects>, 'sort': <method 'sort' of 'list' objects>, '__doc__': 'Built-in mutable sequence.\n\nIf no argument is given, the constructor creates a new empty list.\nThe argument must be an iterable if specified.'}
 ```
 
 #### globals()
@@ -1259,12 +1256,12 @@ print(id({'name': 'Doe'})) # 140615104266112
 class Person:
     pass
 ps = Person()
-print(hasattr(ps, 'name')) # Output: False
+print(hasattr(ps, 'name')) # False
 setattr(ps, 'name', 'John Foo')
-print(hasattr(ps, 'name')) # Output: True
-print(getattr(ps, 'name')) # Output: John Foo
+print(hasattr(ps, 'name')) # True
+print(getattr(ps, 'name')) # John Foo
 delattr(ps, 'name')
-print(hasattr(ps, 'name')) # Output: False
+print(hasattr(ps, 'name')) # False
 ```
 
 ### Builtin Function for Checking
@@ -1280,9 +1277,9 @@ print(bool([]), bool([100, 200])) # False True
 #### type()
 type() is used to check the data type
 ```python
-print(type('he he')) # Output: <class 'str'>
-print(type(['hey', 'hello'])) # Output: <class 'list'>
-print(type(20)) # Output: <class 'int'>
+print(type('he he')) # <class 'str'>
+print(type(['hey', 'hello'])) # <class 'list'>
+print(type(20)) # <class 'int'>
 ```
 
 #### isinstance(), issubclass()
@@ -1345,10 +1342,10 @@ li = [item for item in range(10000)]
 dq = deque(li)
 
 print(timeit('li.insert(0, 100)', number=100000, globals=globals()))
-# Output: 2.143603781998536
+# 2.143603781998536
 
 print(timeit('dq.appendleft(100)', number=100000, globals=globals()))
-# Output: 0.006301867000729544
+# 0.006301867000729544
 ```
 
 **[⬆ back to top](#table-of-contents)**
