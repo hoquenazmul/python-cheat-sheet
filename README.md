@@ -27,7 +27,7 @@
 20. [Python Library](#python-library)
     - [datetime & timedelta](#datetime--timedelta)
     - [faker](#faker)
-    - [random](#random)
+    - [random & string](#random--string)
 
 ## Print Output
 ```python
@@ -1399,3 +1399,31 @@ print(td.seconds) # 75394
 print(td.total_seconds()) # 405550594.348977
 ```
 **[⬆ back to top](#table-of-contents)**
+### random & string
+```python
+import random
+
+random.random() # 0.6709288725924469 (generate randomly floating number)
+random.randint(100, 110) # 105 (random number from a range)
+
+# randomly picks a value from a sequential
+random.choice([21, 43, 65, 76]) # 43 
+# randomly picks more than one value based on 'k'
+random.choices([21, 43, 65, 76], k=3) # [65, 43, 65] 
+
+nums = [1, 2, 3, 4, 5]
+random.shuffle(nums) # changed the order randomly
+print(nums) # [5, 1, 2, 4, 3]
+```
+```python
+# a good example
+import string, random
+
+combined_string = string.ascii_letters + string.digits + string.punctuation
+print(combined_string) 
+# abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+
+strong_password = "".join(random.choices(combined_string, k=8))
+print(strong_password) # WA3k*?D5
+print(strong_password) # R?BGDNj<
+```
