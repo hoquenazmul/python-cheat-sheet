@@ -25,7 +25,7 @@
 18. [Built-in Functions](#built-in-functions)
 19. [Check Program Performance](#check-program-performance)
 20. [Python Library](#python-library)
-    - [datetime](#datetime)
+    - [datetime & timedelta](#datetime--timedelta)
     - [faker](#faker)
     - [random](#random)
 
@@ -1354,5 +1354,39 @@ print(timeit('dq.appendleft(100)', number=100000, globals=globals()))
 **[⬆ back to top](#table-of-contents)**
 
 # Python Library
+### datetime & timedelta
+```python
+from datetime import datetime
+import time
 
+dt1 = datetime(2010, 1, 2) # 2010-01-02 00:00:00 (datetime object for specific date)
+dt2 = datetime.now() # 2022-11-11 20:35:15.133546 (datetime object for now)
+dt = datetime.fromtimestamp(time.time()) # 2022-11-11 20:35:15.133547 (create datetime obj from timestamp)
+
+print(dt) # 2022-11-11 20:44:14.250334
+print(f"{dt.month}/{dt.day}/{dt.year}") # 11/11/2022
+print(dt2 > dt1) # True
+```
+```python
+# convert a string into datetime object
+dt = datetime.strptime("2018-01-21", "%Y-%m-%d") # 2018-01-21 00:00:00 
+
+# convert a datetime obj into string
+year_month = dt.strftime("%Y-%m") # 2018-01 
+```
+```python
+# timedelta
+from datetime import datetime, timedelta
+
+dt1 = datetime(2010, 1, 2) + timedelta(days=3) # 2010-01-05 00:00:00 
+dt2 = datetime.now() # 2022-11-11 20:56:34.348977
+print(dt1)
+print(dt2)
+
+td = dt2 - dt1 # datetime - datetime => timedelta
+print(td) # 4693 days, 20:56:34.348977
+print(td.days) # 4693
+print(td.seconds) # 75394
+print(td.total_seconds()) # 405550594.348977
+```
 **[⬆ back to top](#table-of-contents)**
