@@ -1355,6 +1355,15 @@ print(timeit('dq.appendleft(100)', number=100000, globals=globals()))
 
 # Python Library
 ### datetime & timedelta
+|   Directive     |     Example     |   Directive   |     Example    
+|-----------------|-----------------|---------------|--------------
+|`%a`|Sun         |`%A`             |Sunday 
+|`%d`|01 (day)    |`%m`             |01 (month)        
+|`%b`|Jan         |`%B`             |January
+|`%y`|13 (year)   |`%Y`             |2013 (year)
+|`%H`|13 (24 hour)|`%I`             |1 (12 hour)
+|`%p`|AM, PM      |`%Z`             |EST, PST
+|`%M`|59 (minutes)|`%S`             |45 (seconds)
 ```python
 from datetime import datetime
 import time
