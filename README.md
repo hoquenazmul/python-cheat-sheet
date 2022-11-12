@@ -26,8 +26,8 @@
 19. [Check Program Performance](#check-program-performance)
 20. [Python Library](#python-library)
     - [datetime & timedelta](#datetime--timedelta)
-    - [faker](#faker)
     - [random & string](#random--string)
+    - [faker](#faker)
 
 ## Print Output
 ```python
@@ -1426,4 +1426,60 @@ print(combined_string)
 strong_password = "".join(random.choices(combined_string, k=8))
 print(strong_password) # WA3k*?D5
 print(strong_password) # R?BGDNj<
+```
+### faker
+```python
+from faker import Faker
+
+fake = Faker('en-US') # faker obj for English
+fake = Faker()
+
+fake.name() # Richard Guzman
+fake.unique.name() # Nancy Hurst (Every names should be unique Once create multiplas within single shot)
+fake.first_name() # Tammy
+fake.last_name() # Barnes
+fake.email() # daltonreyes@example.org
+fake.safe_email() # michaelhess@example.org
+fake.phone_number() # (122)127-6210x4172
+fake.image_url() # https://placeimg.com/614/408/any
+fake.ssn() # 781-02-4026
+
+fake.address() # 78917 Jon Suite 271 Port Duaneview, HI 40684
+fake.city() # South Karenchester
+fake.zipcode() # 20893
+fake.country() # Norway
+```
+```python
+fake.bothify("???-###", letters="MAXI") # XIX-218 (? => letters, # => digits)
+fake.random_int(min=10, max=20) # 16
+fake.csv() # "Rodney Castaneda","869 Port Christopherland, KS 76525"
+fake.json() # [{"name": "Joseph Smith", "residency": "930 Madison Extension, OH 93947"}]
+
+fake.date() # 1981-05-02
+fake.past_date() # 2022-10-22
+fake.future_date() # 2022-11-21
+```
+```python
+from faker import Faker
+from faker.providers import BaseProvider
+from faker.providers import DynamicProvider
+
+fake = Faker()
+
+class MyProvider(BaseProvider):
+    def age(self) -> int:
+        return fake.random_int(min=0, max=100)
+
+# add new provider to faker instance
+fake.add_provider(MyProvider)
+print(fake.age()) # 41
+
+# or without following class
+test_status = DynamicProvider(
+     provider_name="test_status",
+     elements=["Passed", "Failed", "Skipped"],
+)
+
+fake.add_provider(test_status)
+print(fake.test_status()) # Failed (randomly picks one like random.choice())
 ```
