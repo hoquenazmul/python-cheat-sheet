@@ -702,7 +702,7 @@ with open('hello.txt', 'r') as fp:
 |keeps the states of local variable|destroys the states of local variable
 |not exit the function             |exit the function
 
-> yield statement actually pause the execution of function and store the value in local scope and continue this process by next() method sincie yield convert a function to a generator.
+yield statement actually pause the execution of function and store the value in local scope and continue this process by next() method sincie yield convert a function to a generator.
 > **Why Generator:** When we only care about the current value, not worry about the before, after or all values, then we can go with Generator. because it only cares about the current value not the whole data. so it's more memory efficient.
 ```python
 def sqr_num(n):
