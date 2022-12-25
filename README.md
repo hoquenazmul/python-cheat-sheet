@@ -20,6 +20,7 @@
 13. [Map, Filter & List Comprehension](#map-filter--list-comprehension)
 14. [File in Python](#file-in-python)
 15. [Iterators & Generators](#iterators--generators)
+    - [yield & return](#yield--return)
 16. [Error Handling](#error-handling)
 17. [OOPs](#oops)
 18. [Built-in Functions](#built-in-functions)
@@ -693,6 +694,23 @@ with open('hello.txt', 'r') as fp:
 **Generators**
  <img src="images/generator.png">
 
+### yield & return
+> yield statement actually pause the execution of function and store the value in local scope and continue this process by next() method sincie yield convert a function to a generator.
+> **Why Generator:** When we only care about the current value, not worry about the before, after or all values, then we can go with Generator. because it only cares about the current value not the whole data. so it's more memory efficient.
+|yield                             |return                         
+|----------------------------------|-------------------------------
+|provide output and continue       | provide output and stop           
+|gives back a generator            | gives a return value and stop            
+|keeps the states of local variable|destroys the states of local variable
+|not exit the function             |exit the function
+```python
+def sqr_num(n):
+    for i in range(1, n + 1):
+        yield i * i
+
+for i in sqr_num(5): # default behavior of for loop => (iter(range(5)))
+    print(i) # default behavior of for loop => next(iterable)
+```
 **[⬆ back to top](#table-of-contents)**
 
 # Error Handling
