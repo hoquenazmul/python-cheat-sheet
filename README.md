@@ -709,7 +709,7 @@ def sqr_num(n):
     for i in range(1, n + 1):
         yield i * i
 
-for i in sqr_num(5): # default behavior of for loop => (iter(range(5)))
+for i in sqr_num(5): # default behavior of for loop => iter(range(5))
     print(i) # default behavior of for loop => next(iterable)
 ```
 **[⬆ back to top](#table-of-contents)**
