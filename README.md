@@ -28,6 +28,7 @@
     - [datetime & timedelta](#datetime--timedelta)
     - [random & string](#random--string)
     - [faker](#faker)
+    - [collections](#collections)
 
 ## Print Output
 ```python
@@ -1481,5 +1482,59 @@ test_status = DynamicProvider(
 
 fake.add_provider(test_status)
 print(fake.test_status()) # Failed (randomly picks one like random.choice())
+```
+**[⬆ back to top](#table-of-contents)**
+## collections
+#### OrderedDict
+After python 3.7, python dictionary is able to maintain insertion order like OrderedDict. So, now you can maintain insertion order using python dictionary. OrderedDict has some extra feature though
+```python
+from collections import OrderedDict 
+
+
+std_ids = [("john", "342"), ("joe", "654"), ("max", "976"), ("mike", "102")]
+
+# can pass iterator obj as argument
+ord_dict = OrderedDict(std_ids)
+# OrderedDict([('john', '342'), ('joe', '654'), ('max', '976'), ('mike', '102')])
+
+ord_dict.move_to_end('john')
+# OrderedDict([('joe', '654'), ('max', '976'), ('mike', '102'), ('john', '342')])
+
+ord_dict.popitem()
+# OrderedDict([('joe', '654'), ('max', '976'), ('mike', '102')])
+```
+#### namedtuple
+It's bahaving like a tuple (Immutable) but it's more readable and optimized.
+```python
+from collections import namedtuple 
+
+# normal tpl
+admin = ('admin', 'password')
+admin[0] # admin
+
+# namedtuple
+User = namedtuple('User', ['username', 'password'])
+admin = User("admin", "******")
+editor = User(username="editor", password="******")
+
+admin.username # admin
+editor.username # editor
+```
+we can get same readability by using dictionary but it's more verbose. everytime to create a new user we need to use keys but in namedtuple it's optional. if we want we can use keys or we can skip it. and in python dictionary we can't access the value by using . syntax.
+
+```python
+from collections import namedtuple 
+
+# namedtuple
+User = namedtuple('User', ['username', 'password'])
+admin = User("admin", "******")
+editor = User(username="editor", password="******")
+admin.username # admin
+editor.username # editor
+
+# dictionary
+admin = {"username": "admin", "password": "******"}
+editor = {"username": "editor", "password": "******"}
+admin['username'] # admin
 ```
 **[⬆ back to top](#table-of-contents)**
