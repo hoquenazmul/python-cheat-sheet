@@ -772,6 +772,13 @@ print(ps.__dict__) # {'name': 'John Doe', 'age': 25, 'gender': 'Male'}
 print(ps.name) # John Doe
 print(ps.get_summary()) # Name: John Doe, Age: 25, Gender: Male
 ```
+```python
+# create class dynamically by using type()
+# farmula: ClassName = type('ClassName', (Parent1, Parent2), {}/dict() => to create property)
+Person = type('Person', (Animal), {'lang': 'English', 'name': 'John'})
+p = Person() # <__main__.Person object at 0x000001F325CB0B20>
+```
+
 #### Class vs Instance Property
 ```python
 class Person:
