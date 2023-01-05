@@ -365,6 +365,21 @@ print(txt.isupper(), txt.islower(), txt.istitle()) # False False False
 
 print("Hell" in txt) # True
 ```
+```python
+# String Formatting
+msg = """
+Hey {name}
+How's it going?
+"""
+greeting = "Good {text}"
+
+name = "John"
+info = f"This is {name}"
+
+msg.format(name="Joe") # Hey Joe\nHow's it going?
+greeting.format(text="Morning") # Good Morning
+info # This is John
+```
 **[⬆ back to top](#table-of-contents)**
 
 # List
