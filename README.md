@@ -366,6 +366,13 @@ print(txt.isupper(), txt.islower(), txt.istitle()) # False False False
 print("Hell" in txt) # True
 ```
 ```python
+# Translating String
+data = ['John Doe', 'Chittagong-Bangladesh', '530 B-Block\nHalishahar']
+
+formatted_data = [dt.translate(str.maketrans({' ': '_', '-': '_', '\n': '_'})).lower() for dt in data]
+formatted_data # ['john_doe', 'chittagong_bangladesh', '530_b_block_halishahar']
+```
+```python
 # String Formatting
 msg = """
 Hey {name}
