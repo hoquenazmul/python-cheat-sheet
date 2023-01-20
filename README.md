@@ -29,6 +29,7 @@
     - [datetime & timedelta](#datetime--timedelta)
     - [random & string](#random--string)
     - [faker](#faker)
+    - [dataclasses](#dataclasses)
     - [collections](#collections)
 
 ## Print Output
@@ -1531,6 +1532,97 @@ test_status = DynamicProvider(
 fake.add_provider(test_status)
 print(fake.test_status()) # Failed (randomly picks one like random.choice())
 ```
+**[⬆ back to top](#table-of-contents)**
+## dataclasses
+@dataclass is one of the best practice, if our class is data based or data focused. It automitacally creates the init, repr, eq method for a class. no need to explicitly create those those method.
+
+- **default behaviour:** `@dataclass(*, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False)`
+- if you want do comparison like `__gt__, __ge__, __lt__, __le__`, then you've to make the order as True. ex: `@dataclass(order=True)`
+- by default dataclasss' properties are mutable, we can change/set the property's value. if you want to make it immutable, then frozen should be True. ex: `@dataclass(frozen=True)`
+- unsafa_hash control the hash value. by default it's false. if you want to generate the hash value of your dataclass object, then you've to make the unsafe_hash as True. ex: `@dataclass(unsafe_hash=True)`
+- inside dataclass if we create property with type, those property automitacally goes into `__init__` method as instance propery not class property.
+- `__post_init__` as name says, it can easily access the properties of `__init__` method or whatever propery created inside dataclass with type. Auto generated `__init__()` method of dataclass automitacally calls the `__post_init__()`, if it is exist inside dataclass. `__post_init__` method is triggered Once `__init__()` is done.
+- **field:** field helps to change the default behavior dataclass property. ex:
+```python 
+from dataclasses import dataclass, field
+obj.__dataclass_fields__ # to see all the fields of dataclass
+obj.__dataclass_fields__['age'] # to see specific field
+
+@dataclass
+class Investor:
+	name: str
+	age: int
+	cash: float field(repr=False, campare=True, default=10.0)
+
+@dataclass
+class Person:
+	name: str
+	city: str
+	age: int
+	is_senior_citizen: bool = field(init=False)
+	
+	def __post_init__(self):
+		if age > 60:
+			is_senior_citizen=True
+		else:
+			is_senior_citizen=False
+```
+**DataClass Inheritance:** if you property are common between Parent class & Child class. The parent class propery should be replaced by child class property.
+```python
+@dataclass
+class Person:
+	name: str
+	city: str
+	age: int
+
+@dataclass
+class Student(Person)
+	std_id: int
+	std_email: str
+
+s = Student("John", "Brooklyn", 25, "1001", "john@email.com")
+```
+**A Good Example**
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    name: str 
+    email: str 
+    age: int 
+    country: str 
+
+    def __post_init__(self):
+        for key, val in self.__dict__.items():
+            if key != 'age':
+                setattr(self, key, val.upper())
+
+
+_dataclass = Person(*['John', 'john@gmail.com', 30, 'USA'])
+_dataclass # Person(name='JOHN', email='JOHN@GMAIL.COM', age=30, country='USA')
+```
+and
+```python
+from dataclasses import make_dataclass
+
+def get_data():
+    tpl_list = [('name', str), ('email', str), ('age', int), ('country', str)]
+
+    return make_dataclass('Person', 
+    tpl_list, 
+    namespace={
+        '__post_init__': lambda self: [setattr(self, k, v.upper()) for k, v in self.__dict__.items() if not (k == 'age')]
+    })
+
+person_data = ['John Doe', 'john@gmail.com', 30, 'USA']
+_dataclass = get_data()
+
+data_elements = _dataclass(*[dt for dt in person_data])
+data_elements # Person(name='JOHN DOE', email='JOHN@GMAIL.COM', age=30, country='USA')
+```
+
+
 **[⬆ back to top](#table-of-contents)**
 ## collections
 #### OrderedDict
