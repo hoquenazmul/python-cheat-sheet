@@ -27,6 +27,7 @@
 19. [Built-in Functions](#built-in-functions)
 20. [Check Program Performance](#check-program-performance)
 21. [Python Library](#python-library)
+    - [typing](#typing)
     - [datetime & timedelta](#datetime--timedelta)
     - [random & string](#random--string)
     - [faker](#faker)
@@ -1434,6 +1435,111 @@ print(timeit('dq.appendleft(100)', number=100000, globals=globals()))
 **[⬆ back to top](#table-of-contents)**
 
 # Python Library
+## typing
+```python
+# Var & Method
+import typing
+from typing import Any
+
+name: str = "john"
+age: int = 25
+monthly_income: float = 6025.67
+is_eligible: bool = True
+random_var: Any = "hello"
+random_var = 100
+
+def greeting(name: str) -> str:
+    return f"hello, {name}"
+
+def print_hello() -> None:
+    print("Hello World")
+```
+
+```python
+# list, dict, set
+from typing import List, Dict, Set, Any
+
+li: List[List[int]] = [[1, 2], [3, 4]]
+dt: Dict[str, Any] = {"name": "john", "email": "john@gmail.com", "age": 25}
+nums: Set[bool] = {20, 32, 23, 43, 20, 30, 30}
+```
+
+```python
+# custom type
+from typing import List, Dict
+
+User = Dict[str, str]
+Users = List[User] # List[Dict[str, str]]
+
+def get_front_user(usr: Users) -> User:
+    return usr[0]
+```
+
+```python
+# optional => default argument
+from typing import Optional
+
+def func(output: Optional[bool] = False): # default parameter
+    pass
+```
+
+```python
+# sequence => accessible by index => str, list, tuple
+from typing import Sequence
+
+def foo(seq: Sequence) -> None:
+    pass
+
+foo([1, 2, 3])
+foo((1, 2, 3))
+foo("Hello") 
+```
+
+```python
+# tuple => needs to define data type for each tuple element
+from typing import Tuple
+
+tpl: Tuple[int, int, int] = (1, 2, 3)
+```
+
+```python
+# callable => for a method
+from typing import Callable
+
+def add(a: int, b: int) -> int:
+    return a + b
+
+def double(func: Callable[[int, int], int]) -> int:
+    return func(10, 20) * 2
+
+double(add)
+```
+
+```python
+# lambda
+from typing import Callable
+
+add_two_nums: Callable[[int, int], int] = lambda x, y: x + y
+```
+
+```python
+# TypeVar => Generic => To preserve/maintain same input/output data type
+from typing import TypeVar
+
+T = TypeVar('T')
+
+def front(lst: List[T]) -> T:
+    return lst[0] / 2 # Incompatible return value type (got "float", expected "T")
+    # since T(int) changed to T(float) after divided by 2
+
+def front(lst: List[T]) -> T:
+    return lst[0] # It should be good since T isn't changed here
+
+front([10, 20, 30])
+```
+
+More Info => https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html
+
 ## datetime & timedelta
 |   Directive     |     Example     |   Directive   |     Example    
 |-----------------|-----------------|---------------|--------------
