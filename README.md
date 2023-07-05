@@ -19,13 +19,14 @@
 12. [Dictionary](#dictionary)
 13. [Map, Filter & List Comprehension](#map-filter--list-comprehension)
 14. [File in Python](#file-in-python)
-15. [Iterators & Generators](#iterators--generators)
+15. [Import & Export](#import--export)
+16. [Iterators & Generators](#iterators--generators)
     - [yield & return](#yield--return)
-16. [Error Handling](#error-handling)
-17. [OOPs](#oops)
-18. [Built-in Functions](#built-in-functions)
-19. [Check Program Performance](#check-program-performance)
-20. [Python Library](#python-library)
+17. [Error Handling](#error-handling)
+18. [OOPs](#oops)
+19. [Built-in Functions](#built-in-functions)
+20. [Check Program Performance](#check-program-performance)
+21. [Python Library](#python-library)
     - [datetime & timedelta](#datetime--timedelta)
     - [random & string](#random--string)
     - [faker](#faker)
@@ -707,6 +708,31 @@ with open('hello.txt', 'r') as fp:
 # Python is Awesom
 # Another line added in append mode
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+# Import & Export
+```python
+import my_module
+my_module.find_index()
+
+import my_module as mm
+mm.find_index()
+
+from my_module import find_index
+find_index()
+
+from my_module import find_index as fi # Ambiguous => not recommended
+fi()
+
+from my_module import * # Ambiguous => not recommended
+find_index()
+```
+**Import from Env Variable**
+We can import a module by adding the path of it as `PYTHONPATH` in `User variables`.
+`Key => PYTHONPATH`
+`Value => c:\users\john\documents\my_module` 
+ <img src="images/PYTHONPATH.jpg"> 
 
 **[⬆ back to top](#table-of-contents)**
 
