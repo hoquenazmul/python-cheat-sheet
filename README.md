@@ -728,11 +728,18 @@ fi()
 from my_module import * # Ambiguous => not recommended
 find_index()
 ```
-**Import from Env Variable**
+**Use Custom Module in Anywhere**
 We can import a module by adding the path of it as `PYTHONPATH` in `User variables`.
 `Key => PYTHONPATH`
 `Value => c:\users\john\documents\my_module` 
+
  <img src="images/PYTHONPATH.jpg"> 
+ 
+ ```python
+# To see which paths are looking for importing module
+import sys
+sys.path
+ ```
 
 **[⬆ back to top](#table-of-contents)**
 
