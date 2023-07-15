@@ -1539,6 +1539,7 @@ front([10, 20, 30])
 ```
 
 More Info => https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html
+**[⬆ back to top](#table-of-contents)**
 
 ## datetime & timedelta
 |   Directive     |     Example     |   Directive   |     Example    
