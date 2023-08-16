@@ -1707,7 +1707,6 @@ class Person:
 		else:
 			is_senior_citizen=False
 ```
-**[⬆ back to top](#table-of-contents)**
 **DataClass Inheritance:** if you property are common between Parent class & Child class. The parent class propery should be replaced by child class property.
 ```python
 @dataclass
